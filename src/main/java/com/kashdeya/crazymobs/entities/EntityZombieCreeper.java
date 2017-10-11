@@ -16,6 +16,7 @@ public class EntityZombieCreeper extends EntityCreeper {
 	  public EntityZombieCreeper(World worldIn) {
 		  super(worldIn);
 		  this.setSize(0.6F, 1.7F);
+		  this.experienceValue = 20;
 		  this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
 	  }
 	  

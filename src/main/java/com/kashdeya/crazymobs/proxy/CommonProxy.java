@@ -1,5 +1,8 @@
 package com.kashdeya.crazymobs.proxy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.kashdeya.crazymobs.entities.EntityBlazeCreeper;
 import com.kashdeya.crazymobs.entities.EntityZombieCreeper;
 import com.kashdeya.crazymobs.main.CrazyMobs;
@@ -9,8 +12,10 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.BiomeManager;
+import net.minecraftforge.common.BiomeManager.BiomeEntry;
+import net.minecraftforge.common.BiomeManager.BiomeType;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class CommonProxy {
 	
@@ -25,8 +30,19 @@ public class CommonProxy {
 	}
 
 	public void init() {
-		EntityRegistry.addSpawn(EntityZombieCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);
-		EntityRegistry.addSpawn(EntityZombieCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, Biomes.PLAINS);
+		
+		List<BiomeEntry> biomeEntries = new ArrayList<BiomeEntry>();
+		biomeEntries.addAll(BiomeManager.getBiomes(BiomeType.COOL));
+		biomeEntries.addAll(BiomeManager.getBiomes(BiomeType.DESERT));
+		biomeEntries.addAll(BiomeManager.getBiomes(BiomeType.ICY));
+		biomeEntries.addAll(BiomeManager.getBiomes(BiomeType.WARM));
+		List<Biome> biomes = new ArrayList<Biome>();
+		for (BiomeEntry b : biomeEntries){
+			biomes.add(b.biome);
+		}
+		
+		EntityRegistry.addSpawn(EntityZombieCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
+		EntityRegistry.addSpawn(EntityBlazeCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
     }
 
 	public void registerRenderers() {
