@@ -11,16 +11,16 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ZombieCreeperRenderHandler extends RenderLiving<EntityZombieCreeper> {
-	
-	private static ResourceLocation DEFAULT = new ResourceLocation("cm:textures/entity/zombie_creeper.png");
-	
-	public ZombieCreeperRenderHandler(RenderManager managerIn) {
-		super(managerIn, (ModelBase)new ModelCreeper(), 0.25F);
+public class RenderZombieCreeper extends RenderLiving<EntityZombieCreeper> {
+
+	private static ResourceLocation TEXTURE = new ResourceLocation("cm:textures/entity/zombie_creeper.png");
+
+	public RenderZombieCreeper(RenderManager managerIn) {
+		super(managerIn, (ModelBase) new ModelCreeper(), 0.25F);
 	}
-	
+
 	@Override
 	protected ResourceLocation getEntityTexture(EntityZombieCreeper entity) {
-		return this.DEFAULT;
+		return TEXTURE;
 	}
 }

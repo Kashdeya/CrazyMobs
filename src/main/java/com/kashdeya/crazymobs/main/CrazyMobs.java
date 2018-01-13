@@ -13,24 +13,25 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 
 public class CrazyMobs {
-	
+
 	@Instance(Reference.MOD_ID)
-    public static CrazyMobs instance;
-	
-	@SidedProxy(clientSide=Reference.PROXY_CLIENT, serverSide=Reference.PROXY_COMMON)
+	public static CrazyMobs INSTANCE;
+
+	@SidedProxy(clientSide = Reference.PROXY_CLIENT, serverSide = Reference.PROXY_COMMON)
 	public static CommonProxy PROXY;
-	
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent e) {
-    	PROXY.preInit();
-    	PROXY.registerRenderers();
-    }
 
-    @EventHandler
-    public void init(FMLInitializationEvent e) {
-    	PROXY.init();
-    }
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
+		ModEntities.init();
+		ModEntities.initSpawns();
+		PROXY.registerRenderers();
+	}
 
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent e) {}
+	@EventHandler
+	public void init(FMLInitializationEvent e) {
+	}
+
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+	}
 }

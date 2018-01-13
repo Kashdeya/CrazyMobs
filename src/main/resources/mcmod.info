@@ -2,13 +2,13 @@
 {
   "modid": "cm",
   "name": "CrazyMobs",
-  "description": "Example placeholder mod.",
+  "description": "Mobs that do things",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Kashdeya and friends"],
+  "credits": "vadis for being a boss :P",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
