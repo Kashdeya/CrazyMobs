@@ -1,0 +1,14 @@
+{
+	"entities.john.fuse": {
+		"category": "hostile",
+        "sounds": [
+            { "name": "cm:cena_start" }
+        ]
+    },
+    "entities.john.blow": {
+		"category": "hostile",
+        "sounds": [
+            { "name": "cm:cena_end" }
+        ]
+    }
+}
