@@ -32,7 +32,7 @@ public class EntityBlazeCreeper extends EntityBlaze {
 	  public EntityBlazeCreeper(World worldIn) {
 		  super(worldIn);
 		  this.isImmuneToFire = true;
-	      this.experienceValue = 20;
+	      this.experienceValue = 20;// config option
 	      this.setSize(0.6F, 1.7F);
 	  }
 	  

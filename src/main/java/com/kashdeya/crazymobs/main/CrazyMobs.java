@@ -2,6 +2,8 @@ package com.kashdeya.crazymobs.main;
 
 import com.kashdeya.crazymobs.proxy.CommonProxy;
 
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -20,6 +22,9 @@ public class CrazyMobs {
 	@SidedProxy(clientSide = Reference.PROXY_CLIENT, serverSide = Reference.PROXY_COMMON)
 	public static CommonProxy PROXY;
 
+	public static final SoundEvent ENTITY_JOHN_FUSE = new SoundEvent(new ResourceLocation("cm:entities.john.fuse"));
+	public static final SoundEvent ENTITY_JOHN_BLOW = new SoundEvent(new ResourceLocation("cm:entities.john.blow"));
+	  
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
 		ModEntities.init();

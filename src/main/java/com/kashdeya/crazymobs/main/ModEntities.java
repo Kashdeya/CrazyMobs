@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kashdeya.crazymobs.entities.EntityBlazeCreeper;
+import com.kashdeya.crazymobs.entities.EntityCakeCreeper;
+import com.kashdeya.crazymobs.entities.EntityJohnCenaCreeper;
 import com.kashdeya.crazymobs.entities.EntityZombieCreeper;
 
 import net.minecraft.entity.Entity;
@@ -21,6 +23,8 @@ public class ModEntities {
 	public static void init() {
 		registerEntity(0, EntityZombieCreeper.class, "zombie_creeper", 4365323, 6051800);
 		registerEntity(1, EntityBlazeCreeper.class, "blaze_creeper", 4375424, 5041701);
+		registerEntity(2, EntityJohnCenaCreeper.class, "john_cena_creeper", 4374424, 5021701);
+		registerEntity(3, EntityCakeCreeper.class, "cake_creeper", 4474424, 5221701);
 
 	}
 
@@ -47,6 +51,8 @@ public class ModEntities {
 
 		EntityRegistry.addSpawn(EntityZombieCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
 		EntityRegistry.addSpawn(EntityBlazeCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
+		EntityRegistry.addSpawn(EntityJohnCenaCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
+		EntityRegistry.addSpawn(EntityCakeCreeper.class, 100, 2, 5, EnumCreatureType.MONSTER, biomes.toArray(new Biome[biomes.size()]));
     }
 
 }

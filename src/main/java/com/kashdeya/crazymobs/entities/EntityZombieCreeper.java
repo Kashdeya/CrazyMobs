@@ -1,5 +1,7 @@
 package com.kashdeya.crazymobs.entities;
 
+import com.kashdeya.crazymobs.main.CrazyMobs;
+
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.init.SoundEvents;
@@ -10,13 +12,13 @@ import net.minecraft.world.World;
 public class EntityZombieCreeper extends EntityCreeper {
 	
 	  private int timeSinceIgnited;
-	  private int fuseTime = 30;
-	  private int explosionRadius = 3;
+	  private int fuseTime = 30;// config option
+	  private int explosionRadius = 3;// config option
 	  
 	  public EntityZombieCreeper(World worldIn) {
 		  super(worldIn);
 		  this.setSize(0.6F, 1.7F);
-		  this.experienceValue = 20;
+		  this.experienceValue = 20;// config option
 		  this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.25D);
 	  }
 	  
@@ -42,7 +44,7 @@ public class EntityZombieCreeper extends EntityCreeper {
 	        	  this.setCreeperState(1);
 	            }
 	            if ((i = this.getCreeperState()) > 0 && this.timeSinceIgnited == 0) {
-	            	this.playSound(SoundEvents.ENTITY_ZOMBIE_AMBIENT, 1.0F, 0.5F);
+	            	this.playSound(SoundEvents.ENTITY_ZOMBIE_AMBIENT, 1.0F, 0.5F);// config option volume
 	                this.timeSinceIgnited = 1;
 	            }
 	            this.timeSinceIgnited += i;
