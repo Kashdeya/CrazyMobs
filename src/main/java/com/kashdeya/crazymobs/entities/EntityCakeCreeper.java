@@ -2,7 +2,7 @@ package com.kashdeya.crazymobs.entities;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -82,10 +82,23 @@ public class EntityCakeCreeper extends EntityCreeper {
 	  }
 	  
 	  @Override
-	  protected void dropFewItems(boolean recentlyHit, int looting) {
-		  int randomAmount = 1 + rand.nextInt(2 + looting);
-		  for (int count = 0; count < randomAmount; ++count)
-			  entityDropItem(new ItemStack(Items.CAKE), 0F);
-	  }
+	  public void onDeath(DamageSource cause)
+	    {
+	        super.onDeath(cause);
+
+	        if (this.world.getGameRules().getBoolean("doMobLoot"))
+	        {
+	        	if (cause.getTrueSource() instanceof EntityPlayer)
+	            {
+	        		int i = Item.getIdFromItem(Items.CAKE);
+		            this.dropItem(Item.getItemById(i), 1);
+	            }
+	        	else if (cause.getTrueSource() instanceof EntityCreeper && cause.getTrueSource() != this && ((EntityCreeper)cause.getTrueSource()).getPowered() && ((EntityCreeper)cause.getTrueSource()).ableToCauseSkullDrop())
+	            {
+	                ((EntityCreeper)cause.getTrueSource()).incrementDroppedSkulls();
+	                this.entityDropItem(new ItemStack(Items.SKULL, 1, 4), 0.0F);
+	            }
+	        }
+	    }
 	  
 	}
