@@ -8,8 +8,10 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootTableList;
 
 public class EntityCakeCreeper extends EntityCreeper {
 	
@@ -86,9 +88,7 @@ public class EntityCakeCreeper extends EntityCreeper {
 	    {
 	        super.onDeath(cause);
 
-	        if (this.world.getGameRules().getBoolean("doMobLoot"))
-	        {
-	        	if (cause.getTrueSource() instanceof EntityPlayer)
+	        if (cause.getTrueSource() instanceof EntityPlayer)
 	            {
 	        		int i = Item.getIdFromItem(Items.CAKE);
 		            this.dropItem(Item.getItemById(i), 1);
@@ -98,7 +98,11 @@ public class EntityCakeCreeper extends EntityCreeper {
 	                ((EntityCreeper)cause.getTrueSource()).incrementDroppedSkulls();
 	                this.entityDropItem(new ItemStack(Items.SKULL, 1, 4), 0.0F);
 	            }
-	        }
 	    }
+	  
+	  @Override
+      protected ResourceLocation getLootTable() {
+          return LootTableList.EMPTY;
+      }
 	  
 	}
